@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Library{% endblock %}
+
+{% block content %}
+<h1>My Library</h1>
+{% if not all_books %}
+  <p>Library is empty.</p>
+{% else %}
+  <ul>
+    {% for book in all_books %}
+      <li>{{ book.name }} by {{ book.author }} (Rating: {{ book.rating }})</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<a href="{{ url_for('add') }}">Add New Book</a>
+{% endblock %}
